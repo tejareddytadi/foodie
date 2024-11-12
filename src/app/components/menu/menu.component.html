@@ -1,0 +1,27 @@
+<!-- src/app/components/menu/menu.component.html -->
+<div class="menu-container">
+  <h2 class="menu-title">Our Delicious Menu</h2>
+  <p class="menu-description">Choose from our wide variety of tasty dishes.</p>
+
+  <div class="menu-categories">
+    <button class="category-button">All</button>
+    <button class="category-button">Pizza</button>
+    <button class="category-button">Burger</button>
+    <button class="category-button">Drinks</button>
+    <button class="category-button">Sandwich</button>
+  </div>
+
+  <div class="menu-items">
+    <div class="menu-item" *ngFor="let item of menuItems">
+      <!-- Corrected Image Binding -->
+      <img [src]="item.imageUrl" alt="{{ item.name }}" class="menu-image" />
+      <h3 class="menu-name">{{ item.name }}</h3>
+      <p class="menu-category">{{ item.category }}</p>
+      <p class="menu-price">
+        Price: <span class="current-price">${{ item.price }}</span>
+        <span class="original-price">${{ item.originalPrice }}</span>
+      </p>
+      <button class="btn-add-to-cart" (click)="addToCart(item)">Add to Cart</button>
+    </div>
+  </div>
+</div>
